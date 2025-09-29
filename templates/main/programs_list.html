@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Спеціальності{% endblock %}
+
+{% block content %}
+<h1>Список спеціальностей</h1>
+<ul>
+    {% for specialty in specialties %}
+    <li>
+        <a href="{% url 'main:program_detail' specialty.pk %}">{{ specialty.name }}</a>
+        ({{ specialty.code }}) - {{ specialty.short_description }}
+        <br>Координатор: {{ specialty.coordinator_name }} ({{ specialty.coordinator_contact }})
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

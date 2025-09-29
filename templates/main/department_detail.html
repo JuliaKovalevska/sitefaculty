@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center; color: purple; margin-bottom: 30px;">
+        {{ department.name }}
+    </h1>
+
+    <p><strong>Завідувач:</strong> {{ department.head }}</p>
+    <p><strong>Кабінет:</strong> {{ department.office }}</p>
+
+    <h3>Спеціальності:</h3>
+    <ul>
+        {% for specialty in department.specialties.all %}
+            <li><a href="{% url 'main:specialty_detail' specialty.pk %}">{{ specialty.name }}</a></li>
+        {% empty %}
+            <li>Немає спеціальностей</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Викладачі:</h3>
+    <ul>
+        {% for teacher in department.teachers.all %}
+            <li><a href="{% url 'main:teacher_detail' teacher.pk %}">{{ teacher.name }}</a> - {{ teacher.position }}</li>
+        {% empty %}
+            <li>Немає викладачів</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

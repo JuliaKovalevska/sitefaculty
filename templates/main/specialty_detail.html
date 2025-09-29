@@ -1,0 +1,14 @@
+<h1>{{ specialty.name }}</h1>
+
+<p><strong>Код:</strong> {{ specialty.code }}</p>
+
+<p><strong>Опис:</strong><br>
+{{ specialty.description|linebreaks }}</p>
+
+<p><strong>Координатор:</strong> {{ specialty.coordinator_name }}<br>
+<strong>Контакт:</strong> {{ specialty.coordinator_contact }}</p>
+
+<p><strong>Дисципліни:</strong><br>
+{{ specialty.disciplines|linebreaks }}</p>
+
+<a href="{% url 'main:specialties_list' %}">Назад до списку спеціальностей</a>
