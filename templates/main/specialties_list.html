@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center; color: purple; margin-bottom: 30px;">
+        Спеціальності
+    </h1>
+
+    <div class="row">
+        {% for specialty in specialties %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ specialty.name }}</h5>
+                        <p class="card-text">{{ specialty.description|truncatewords:25 }}</p>
+                        <a href="{% url 'main:specialty_detail' specialty.pk %}" class="btn btn-purple w-100">Переглянути</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>Немає спеціальностей</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+<style>
+    .btn-purple {
+        background-color: #6f42c1;
+        color: white;
+    }
+    .btn-purple:hover {
+        background-color: #5a32a3;
+        color: white;
+    }
+</style>

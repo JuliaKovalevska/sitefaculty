@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1>{{ teacher.name }}</h1>
+<p>Кафедра: {{ teacher.department.name }}</p>
+<p>Спеціальність: {{ teacher.specialty.name }}</p>
+<p>{{ teacher.bio }}</p>
+<a href="{% url 'main:teachers_list' %}">Назад до списку викладачів</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ specialty.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ specialty.name }} ({{ specialty.code }})</h1>
+<p>{{ specialty.description|linebreaks }}</p>
+<p>Координатор: {{ specialty.coordinator_name }} ({{ specialty.coordinator_contact }})</p>
+<h3>Дисципліни:</h3>
+<p>{{ specialty.disciplines|linebreaks }}</p>
+{% endblock %}

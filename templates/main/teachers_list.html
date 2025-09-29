@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center; color: purple; margin-bottom: 30px;">
+        Викладачі
+    </h1>
+
+    <div class="row">
+        {% for teacher in teachers %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ teacher.name }}</h5>
+                        {% if teacher.position %}
+                            <p class="card-text"><strong>Посада:</strong> {{ teacher.position }}</p>
+                        {% endif %}
+                        {% if teacher.department %}
+                            <p class="card-text"><strong>Кафедра:</strong> {{ teacher.department.name }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>Немає викладачів</p>
+        {% endfor %}
+    </div>
+{% endblock %}
